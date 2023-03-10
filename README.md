@@ -1,6 +1,33 @@
 # SoftwareEnergyCost
 This repository contains the codes for estimating the Energy Cost of a Software.
 
+## Results after Profiling the Software
+
+### Model Summary
+<img src = "images/model_summary.png">
+
+### Test Accuracy
+<img src = "images/test_acc.png>
+
+### Test Loss
+<img src = "images/test_loss.png">
+
+### Train Accuracy
+<img src = "images/train_acc.png">
+
+### Train Loss
+<img src = "images/train_loss.png>
+
+### Time Taken
+<img src = "images/time_taken1.png">
+<img src = "images/time_taken2.png">
+
+### Icicle 
+<img src = "images/icicle.png">
+
+### Sunburst
+<img src = "images/sunburst.png">
+
 ## Image Classifier using CNN on Cifar10 dataset
 
 This is an open-source software that provides an image classification tool using a convolutional neural network (CNN) trained on the Cifar10 dataset. The software achieves an accuracy of 84% on test and train data.
