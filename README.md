@@ -55,13 +55,13 @@ This software is protected by copyright law, and the open-source license under w
 This software is well-structured and organized, making it easy to understand and modify. The source code is available in the ipynb file.
 
 ## Testing
-This software comes with a suite of automated test images present in the 'test_images' folder to ensure that it works as expected. You can find more information about the tests in the tests folder.
+This software comes with a suite of automated test images present in the 'test_images' folder to ensure that it works as expected.
 
 ## Portability
 This software is designed to be portable and can run on a variety of hardware and operating systems. Please make sure you have the required dependencies installed before using the software.
 
 ## Identity
-This software has a clear identity and branding that helps users recognize it and distinguish it from other software. You can find more information about the identity and branding in the branding folder.
+This software has a clear identity and branding that helps users recognize it and distinguish it from other software. 
 
 ## Conclusion
 I hope that you find this software useful and that it helps you classify images using CNNs. If you have any questions or suggestions, please feel free to reach out to me.
