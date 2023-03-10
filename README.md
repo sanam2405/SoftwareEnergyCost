@@ -1,5 +1,5 @@
 # SoftwareEnergyCost
-This repository contains the codes for estimating the Energy Cost of a Software
+This repository contains the codes for estimating the Energy Cost of a Software.
 
 ## Image Classifier using CNN on Cifar10 dataset
 
@@ -18,7 +18,7 @@ This software is built using TensorFlow, Keras, and OpenCV libraries. Please mak
 * Keras
 * Jupyter Notebook
 
-Memory profiling tools as and when required have been installed in-line using the pip command
+Memory profiling tools as and when required have been installed in-line using the pip command.
 
 ## Installation
 You can install the software using standard package managers or by downloading pre-built binaries. To build from source, you can use standard build tools.
