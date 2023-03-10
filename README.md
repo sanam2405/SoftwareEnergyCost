@@ -6,7 +6,7 @@ This repository contains the codes for estimating the Energy Cost of a Software.
 This is an open-source software that provides an image classification tool using a convolutional neural network (CNN) trained on the Cifar10 dataset. The software achieves an accuracy of 84% on test and train data.
 
 ## Getting Started
-To use this software, you need to have Jupyter Notebook installed on your computer. You can download the software by cloning the repository or by downloading the ipynb notebook directly. You can then run the cells in the notebook to classify images into different categories.
+To use this software, you need to have Jupyter Notebook installed on your computer. You can download the software by cloning the repository or by downloading the SoftwareProfiling.ipynb notebook directly. You can then run the cells in the notebook to classify images into different categories.
 
 Please note that this is a trained CNN, and a dedicated GPU is necessary for smooth training and desirable results.
 
