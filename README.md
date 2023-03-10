@@ -8,7 +8,7 @@ This is an open-source software that provides an image classification tool using
 ## Getting Started
 To use this software, you need to have Jupyter Notebook installed on your computer. You can download the software by cloning the repository or by downloading the ipynb notebook directly. You can then run the cells in the notebook to classify images into different categories.
 
-Please note that this is a trained CNN, and a dedicated GPU is necessary for smooth training desirable results.
+Please note that this is a trained CNN, and a dedicated GPU is necessary for smooth training and desirable results.
 
 ## Dependencies
 This software is built using TensorFlow and Keras libraries. Please make sure you have the following dependencies installed:
@@ -46,7 +46,7 @@ This software has a clear contributor policy that outlines how developers can co
 This software is supported by the TensorFlow and Keras communities. If you have any questions or need help with the software, you can reach out to the community for support.
 
 ## Plans for the Future
-We plan to continue improving this software and adding new features in the future. We welcome contributions from the community and encourage you to join us in making this software better.
+I plan to continue improving this software and adding new features in the future. I welcome contributions from the community and encourage you to join me in making this software better.
 
 ## Copyright
 This software is protected by copyright law, and the open-source license under which it is released ensures that users are free to use, modify, and distribute the software, subject to certain conditions.
