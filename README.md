@@ -11,12 +11,19 @@ To use this software, you need to have Jupyter Notebook installed on your comput
 Please note that this is a trained CNN, and a dedicated GPU is necessary for smooth training desirable results.
 
 ## Dependencies
-This software is built using TensorFlow, Keras, and OpenCV libraries. Please make sure you have the following dependencies installed:
+This software is built using TensorFlow and Keras libraries. Please make sure you have the following dependencies installed:
 
 * Python 3
 * TensorFlow
 * Keras
 * Jupyter Notebook
+
+For the performance analysis of the software profiling tools are used. Please ensure you have the following dependencies installed:
+
+* TensorBoard
+* mempry_profiler
+* cProfile
+* SnakeViz
 
 Memory profiling tools as and when required have been installed in-line using the pip command.
 
