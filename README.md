@@ -21,7 +21,7 @@ This software is built using TensorFlow and Keras libraries. Please make sure yo
 For the performance analysis of the software profiling tools are used. Please ensure you have the following dependencies installed:
 
 * TensorBoard
-* mempry_profiler
+* memory_profiler
 * cProfile
 * SnakeViz
 
