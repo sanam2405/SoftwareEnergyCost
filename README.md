@@ -43,7 +43,7 @@ This software is supported by a vibrant community of developers and users who co
 This software has a clear contributor policy that outlines how developers can contribute to the project. You can find more information about the policy in the CONTRIBUTING file.
 
 ## Support
-This software is supported by the TensorFlow, Keras, and OpenCV communities. If you have any questions or need help with the software, you can reach out to the community for support.
+This software is supported by the TensorFlow and Keras communities. If you have any questions or need help with the software, you can reach out to the community for support.
 
 ## Plans for the Future
 We plan to continue improving this software and adding new features in the future. We welcome contributions from the community and encourage you to join us in making this software better.
