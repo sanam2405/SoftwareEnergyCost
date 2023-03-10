@@ -1,0 +1,19 @@
+Thank you for your interest in contributing to this open-source software! We welcome contributions from anyone, regardless of skill level or experience.
+Here are some guidelines to help you get started:
+
+1. Fork the repository on GitHub.
+2. Clone the forked repository to your local machine.
+3. Create a new branch for your changes.
+4. Make your changes, and be sure to write clear, concise commit messages.
+5. Push your changes to your forked repository.
+6. Create a pull request against the original repository.
+7. Please keep in mind the following guidelines when contributing:
+
+- Code should be well-documented and adhere to PEP 8 style guidelines.
+- All new features should be accompanied by automated tests.
+- Pull requests should target the main branch.
+- Please be respectful of others and their contributions.
+- If you're unsure about anything, please ask for help! We're happy to assist and provide feedback.
+- By contributing to this software, you agree to license your contributions under the terms of the MIT License.
+
+Thank you for helping to make this software better!
