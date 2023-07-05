@@ -1,0 +1,3 @@
+[submodule "baler"]
+	path = baler
+	url = https://github.com/sanam2405/baler.git
