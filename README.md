@@ -4,6 +4,52 @@
 
 ### Estimating the Energy Cost of a Scientific Software
 
+
+- Repository Structure
+
+```
+.
+├── GSoCEvaluationTask
+├── README.md
+├── Scaphandre
+├── baler
+└── cProfile
+
+baler
+├── Dockerfile
+├── Dockerfile.arm64
+├── Dockerfile.gpu
+├── LICENSE
+├── NOTICE
+├── README.md
+├── baler
+├── bin
+├── docs
+├── entrypoint.sh
+├── fixuid.sh
+├── poetry.lock
+├── profiling
+├── pyproject.toml
+├── requirements.txt
+├── tests
+└── workspaces
+
+baler/profiling
+└── cProfile
+    ├── cprofile_compress.csv
+    ├── cprofile_compress.prof
+    ├── cprofile_compress.py
+    ├── cprofile_compress.txt
+    ├── cprofile_decompress.csv
+    ├── cprofile_decompress.prof
+    ├── cprofile_decompress.py
+    ├── cprofile_decompress.txt
+    ├── cprofile_train.csv
+    ├── cprofile_train.prof
+    ├── cprofile_train.py
+    └── cprofile_train.txt
+```
+
 #### Profiling Baler with cProfile
 
 - Training
