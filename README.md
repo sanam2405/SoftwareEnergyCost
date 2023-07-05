@@ -1,4 +1,6 @@
-# Google Summer of Code 2023 - CERN - Manas Pratim Biswas
+# Google Summer of Code 2023 - CERN 
 
-## Estimating the Energy Cost of a Scientific Software
+## Contributor - Manas Pratim Biswas
+
+### Estimating the Energy Cost of a Scientific Software
 
