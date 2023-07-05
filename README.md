@@ -5,7 +5,7 @@
 ### Estimating the Energy Cost of a Scientific Software
 
 
-- Repository Structure
+#### Repository Structure
 
 ```
 .
