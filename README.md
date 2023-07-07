@@ -72,6 +72,7 @@ baler/profiling
 
 - Results
 
+#### Training
 ---
 <img src = "cProfile/cProfile_Results/train.png">
 
@@ -79,6 +80,7 @@ baler/profiling
 
 <img src = "cProfile/cProfile_Results/train_sunburst.png">
 
+#### Compressing
 ---
 <img src = "cProfile/cProfile_Results/compress.png">
 
@@ -86,6 +88,7 @@ baler/profiling
 
 <img src = "cProfile/cProfile_Results/compress_sunburst.png">
 
+#### Decompressing
 ---
 <img src = "cProfile/cProfile_Results/decompress.png">
 
