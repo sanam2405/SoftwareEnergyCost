@@ -70,13 +70,28 @@ baler/profiling
     poetry run python -m cProfile -o profiling/cProfile/cprofile_decompress.prof -m baler --mode decompress --project CFD_workspace CFD_project_animation
 ```
 
-- Results
+#### Results
 
+##### Training
 ---
 <img src = "cProfile/cProfile_Results/train.png">
 
+<img src = "cProfile/cProfile_Results/train_icicle.png">
+
+<img src = "cProfile/cProfile_Results/train_sunburst.png">
+
+##### Compressing
 ---
 <img src = "cProfile/cProfile_Results/compress.png">
 
+<img src = "cProfile/cProfile_Results/compress_icicle.png">
+
+<img src = "cProfile/cProfile_Results/compress_sunburst.png">
+
+##### Decompressing
 ---
 <img src = "cProfile/cProfile_Results/decompress.png">
+
+<img src = "cProfile/cProfile_Results/decompress_icicle.png">
+
+<img src = "cProfile/cProfile_Results/decompress_sunburst.png">
