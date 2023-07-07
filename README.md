@@ -95,3 +95,40 @@ baler/profiling
 <img src = "cProfile/cProfile_Results/decompress_icicle.png">
 
 <img src = "cProfile/cProfile_Results/decompress_sunburst.png">
+
+
+#### Profiling Baler with pyinstrument
+
+- Training
+```console
+    poetry run pyinstrument -m baler --mode train --project CFD_workspace CFD_project_animation
+    poetry run pyinstrument -r html -m baler --mode train --project CFD_workspace CFD_project_animation
+```
+
+- Compressing
+```console
+    poetry run pyinstrument -m baler --mode compress --project CFD_workspace CFD_project_animation
+    poetry run pyinstrument -r html -m baler --mode compress --project CFD_workspace CFD_project_animation
+```
+
+- Decompressing
+```console
+    poetry run pyinstrument -m baler --mode decompress --project CFD_workspace CFD_project_animation
+    poetry run pyinstrument -r html -m baler --mode train --project CFD_workspace CFD_project_animation
+```
+
+#### Results
+
+##### Training
+---
+<img src = "pyinstrument/pyinstrument_Results/train.png">
+
+
+##### Compressing
+---
+<img src = "pyinstrument/pyinstrument_Results/compress.png">
+
+
+##### Decompressing
+---
+<img src = "pyinstrument/pyinstrument_Results/decompress.png">
