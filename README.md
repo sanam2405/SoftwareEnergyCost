@@ -75,8 +75,20 @@ baler/profiling
 ---
 <img src = "cProfile/cProfile_Results/train.png">
 
+<img src = "cProfile/cProfile_Results/train_icicle.png">
+
+<img src = "cProfile/cProfile_Results/train_sunburst.png">
+
 ---
 <img src = "cProfile/cProfile_Results/compress.png">
 
+<img src = "cProfile/cProfile_Results/compress_icicle.png">
+
+<img src = "cProfile/cProfile_Results/compress_sunburst.png">
+
 ---
 <img src = "cProfile/cProfile_Results/decompress.png">
+
+<img src = "cProfile/cProfile_Results/decompress_icicle.png">
+
+<img src = "cProfile/cProfile_Results/decompress_sunburst.png">
