@@ -134,6 +134,23 @@ baler/profiling
 <img src = "pyinstrument/pyinstrument_Results/decompress.png">
 
 
+#### Profiling Baler with pyinstrument
+
+##### Training
+---
+<img src = "codecarbon/codecarbon_Results/train.png">
+
+
+##### Compressing
+---
+<img src = "codecarbon/codecarbon_Results/compress.png">
+
+
+##### Decompressing
+---
+<img src = "codecarbon/codecarbon_Results/decompress.png">
+
+
 ### Tools and Frameworks 
 
 #### Profilers:
