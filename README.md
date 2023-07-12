@@ -168,9 +168,8 @@ baler/profiling
 
 
 #### List of the frameworks for CO<sub>2</sub> Emissions Estimation:
-1. [green-ai](https://github.com/daviddao/green-ai)
-2. [carbontracker](https://github.com/lfwa/carbontracker)
-3. [Codecarbon](https://github.com/mlco2/codecarbon)
-4. [Eco2AI](https://github.com/sb-ai-lab/Eco2AI)
-5. [CarbonAI](https://github.com/Capgemini-Invent-France/CarbonAI)
-6. [tracarbon](https://github.com/fvaleye/tracarbon)
+1. [carbontracker](https://github.com/lfwa/carbontracker)
+2. [codecarbon](https://github.com/mlco2/codecarbon)
+3. [Eco2AI](https://github.com/sb-ai-lab/Eco2AI)
+4. [CarbonAI](https://github.com/Capgemini-Invent-France/CarbonAI)
+5. [tracarbon](https://github.com/fvaleye/tracarbon)
