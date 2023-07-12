@@ -134,7 +134,7 @@ baler/profiling
 <img src = "pyinstrument/pyinstrument_Results/decompress.png">
 
 
-#### Profiling Baler with pyinstrument
+#### Estimating CO<sub>2</sub> Emission with codecarbon
 
 ##### Training
 ---
