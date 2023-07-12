@@ -132,3 +132,45 @@ baler/profiling
 ##### Decompressing
 ---
 <img src = "pyinstrument/pyinstrument_Results/decompress.png">
+
+
+#### Estimating CO<sub>2</sub> Emission with codecarbon
+
+##### Training
+---
+<img src = "codecarbon/codecarbon_Results/train.png">
+
+
+##### Compressing
+---
+<img src = "codecarbon/codecarbon_Results/compress.png">
+
+
+##### Decompressing
+---
+<img src = "codecarbon/codecarbon_Results/decompress.png">
+
+
+### Tools and Frameworks 
+
+#### Profilers:
+1. [cProfile](https://docs.python.org/3/library/profile.html)
+2. [pyinstrument](https://github.com/joerick/pyinstrument)
+3. [experiment-impact-tracker](https://github.com/Breakend/experiment-impact-tracker)
+4. [scalene](https://github.com/plasma-umass/scalene)
+
+#### List of the frameworks for Energy Cost Estimation:
+1. [scaphandre](https://github.com/hubblo-org/scaphandre)
+2. [boagent](https://github.com/Boavizta/boagent)
+3. [powermeter](https://github.com/autoai-incubator/powermeter)
+4. [powerjoular](https://gitlab.com/joular/powerjoular)
+5. [AIPowerMeter](https://github.com/GreenAI-Uppa/AIPowerMeter)
+
+
+#### List of the frameworks for CO<sub>2</sub> Emissions Estimation:
+1. [green-ai](https://github.com/daviddao/green-ai)
+2. [carbontracker](https://github.com/lfwa/carbontracker)
+3. [Codecarbon](https://github.com/mlco2/codecarbon)
+4. [Eco2AI](https://github.com/sb-ai-lab/Eco2AI)
+5. [CarbonAI](https://github.com/Capgemini-Invent-France/CarbonAI)
+6. [tracarbon](https://github.com/fvaleye/tracarbon)
