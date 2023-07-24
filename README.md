@@ -193,7 +193,7 @@ baler/profiling
 5. [AIPowerMeter](https://github.com/GreenAI-Uppa/AIPowerMeter)
 
 
-#### List of the frameworks for ``` CO<sub>2</sub> ``` Emissions Estimation:
+#### List of the frameworks for CO<sub>2</sub> Emissions Estimation:
 1. [carbontracker](https://github.com/lfwa/carbontracker)
 2. [codecarbon](https://github.com/mlco2/codecarbon)
 3. [Eco2AI](https://github.com/sb-ai-lab/Eco2AI)
