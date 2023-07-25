@@ -1,6 +1,6 @@
-# Google Summer of Code 2023 - CERN 
+# Google Summer of Code 2023 - ``` CERN ``` 
 
-## Contributor - Manas Pratim Biswas
+## Contributor - ``` Manas Pratim Biswas ```
 
 ### Estimating the Energy Cost of a Scientific Software
 
@@ -50,7 +50,7 @@ baler/profiling
     └── cprofile_train.txt
 ```
 
-#### Profiling Baler with cProfile
+#### Profiling Baler with ``` cProfile ```
 
 - Training
 ```console
@@ -70,10 +70,43 @@ baler/profiling
     poetry run python -m cProfile -o profiling/cProfile/cprofile_decompress.prof -m baler --mode decompress --project CFD_workspace CFD_project_animation
 ```
 
+#### Visualizing with ``` SnakeViz ``` and ``` yelp-gprof2dot ``` 
+
+
+- Installing ``` SnakeViz ``` and ``` yelp-gprof2dot ```
+```console 
+    poetry add SnakeViz
+    poetry add yelp-gprof2dot
+```
+
+- Training
+```console
+    poetry run snakeviz cProfile_train.prof
+    poetry run gprof2dot cprofile_train.pstats -z <graph_root> | dot -Tsvg -o cprofile_train.svg
+    poetry run gprof2dot cprofile_train.pstats -z <graph_root> | dot -Tsvg -o cprofile_train.pdf
+```
+
+- Compressing
+```console
+    poetry run snakeviz cProfile_compress.prof
+    poetry run gprof2dot cprofile_compress.pstats -z <graph_root> | dot -Tsvg -o cprofile_compress.svg
+    poetry run gprof2dot cprofile_compress.pstats -z <graph_root> | dot -Tpdf -o cprofile_compress.pdf
+```
+
+
+- Decompressing
+```console
+    poetry run snakeviz cProfile_decompress.prof
+    poetry run gprof2dot cprofile_decompress.pstats -z <graph_root> | dot -Tsvg -o cprofile_decompress.svg
+    poetry run gprof2dot cprofile_decompress.pstats -z <graph_root> | dot -Tpdf -o cprofile_decompress.pdf
+```
+
 #### Results
 
 ##### Training
 ---
+<img src = "cProfile/cProfile_Results/train_graph.png">
+
 <img src = "cProfile/cProfile_Results/train.png">
 
 <img src = "cProfile/cProfile_Results/train_icicle.png">
@@ -97,7 +130,13 @@ baler/profiling
 <img src = "cProfile/cProfile_Results/decompress_sunburst.png">
 
 
-#### Profiling Baler with pyinstrument
+#### Profiling Baler with ``` pyinstrument ```
+
+
+- Installing ``` pyinstrument ```
+```console 
+    poetry add pyinstrument
+```
 
 - Training
 ```console
@@ -134,7 +173,59 @@ baler/profiling
 <img src = "pyinstrument/pyinstrument_Results/decompress.png">
 
 
-#### Estimating CO<sub>2</sub> Emission with codecarbon
+#### Profiling Baler with ``` memory-profiler ```
+
+
+- Installing ``` memory-profiler ```
+```console 
+    poetry add memory-profiler
+```
+
+- Training
+```console
+    poetry run mprof run --python baler --mode train --project CFD_workspace CFD_project_animation
+    poetry run mprof plot -t train_slope  -s
+    poetry run mprof plot -t train_flame  -f
+```
+
+- Compressing
+```console
+   poetry run mprof run --python baler --mode compress --project CFD_workspace CFD_project_animation
+   poetry run mprof plot -t compress_slope -s
+   poetry run mprof plot -t compress_flame -f
+```
+
+- Decompressing
+```console
+    poetry run mprof run --python baler --mode decompress --project CFD_workspace CFD_project_animation
+    poetry run mprof plot -t decompress_slope -s
+    poetry run mprof plot -t decompress_flame -f
+```
+
+
+#### Results
+
+##### Training
+---
+<img src = "memory-profiler/mprof_Results/train_slope.png">
+
+
+##### Compressing
+---
+<img src = "memory-profiler/mprof_Results/compress_slope.png">
+
+
+##### Decompressing
+---
+<img src = "memory-profiler/mprof_Results/decompress_slope.png">
+
+
+#### Estimating CO<sub>2</sub> Emission with ``` codecarbon ```
+
+- Installing ``` codecarbon ```
+```console 
+    poetry add codecarbon
+```
 
 ##### Training
 ---
@@ -153,11 +244,18 @@ baler/profiling
 
 ### Tools and Frameworks 
 
-#### Profilers:
+#### CPU/GPU Profilers:
 1. [cProfile](https://docs.python.org/3/library/profile.html)
 2. [pyinstrument](https://github.com/joerick/pyinstrument)
 3. [experiment-impact-tracker](https://github.com/Breakend/experiment-impact-tracker)
 4. [scalene](https://github.com/plasma-umass/scalene)
+
+
+#### Memory Profilers:
+1. [memory-profiler](https://pypi.org/project/memory-profiler/)
+2. [memray](https://github.com/bloomberg/memray)
+3. [filprofiler](https://github.com/Breakend/experiment-impact-https://github.com/pythonspeed/filprofiler)
+
 
 #### List of the frameworks for Energy Cost Estimation:
 1. [scaphandre](https://github.com/hubblo-org/scaphandre)
