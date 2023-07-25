@@ -72,6 +72,13 @@ baler/profiling
 
 #### Visualizing with ``` SnakeViz ``` and ``` yelp-gprof2dot ``` 
 
+
+- Installing ``` SnakeViz ``` and ``` yelp-gprof2dot ```
+```console 
+    poetry add SnakeViz
+    poetry add yelp-gprof2dot
+```
+
 - Training
 ```console
     poetry run snakeviz cProfile_train.prof
@@ -125,6 +132,12 @@ baler/profiling
 
 #### Profiling Baler with ``` pyinstrument ```
 
+
+- Installing ``` pyinstrument ```
+```console 
+    poetry add pyinstrument
+```
+
 - Training
 ```console
     poetry run pyinstrument -m baler --mode train --project CFD_workspace CFD_project_animation
@@ -162,6 +175,12 @@ baler/profiling
 
 #### Profiling Baler with ``` memory-profiler ```
 
+
+- Installing ``` memory-profiler ```
+```console 
+    poetry add memory-profiler
+```
+
 - Training
 ```console
     poetry run mprof run --python baler --mode train --project CFD_workspace CFD_project_animation
@@ -188,20 +207,25 @@ baler/profiling
 
 ##### Training
 ---
-<img src = "memory_profiler/mprof_Results/train_slope.png">
+<img src = "memory-profiler/mprof_Results/train_slope.png">
 
 
 ##### Compressing
 ---
-<img src = "memory_profiler/mprof_Results/compress_slope.png">
+<img src = "memory-profiler/mprof_Results/compress_slope.png">
 
 
 ##### Decompressing
 ---
-<img src = "memory_profiler/mprof_Results/decompress_slope.png">
+<img src = "memory-profiler/mprof_Results/decompress_slope.png">
 
 
 #### Estimating CO<sub>2</sub> Emission with ``` codecarbon ```
+
+- Installing ``` codecarbon ```
+```console 
+    poetry add codecarbon
+```
 
 ##### Training
 ---
