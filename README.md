@@ -262,7 +262,7 @@ from(bucket: "baler")
   |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
   |> yield(name: "last")
 ```
-- ``` Run baler with usual commands on train, compress and decompress modes ```
+- ``` Run baler with usual commands on train, compress and decompress modes on a different terminal ```
 
 #### Results
 
