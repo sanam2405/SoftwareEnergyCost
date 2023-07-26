@@ -250,7 +250,7 @@ baler/profiling
 <img src = "codecarbon/codecarbon_Results/compress/duration.png">
 
 ---
-<img src = "codecarbon/codecarbon_Results/compress/emission.png">
+<img src = "codecarbon/codecarbon_Results/compress/emissions.png">
 
 ---
 <img src = "codecarbon/codecarbon_Results/compress/energy.png">
@@ -265,7 +265,7 @@ baler/profiling
 <img src = "codecarbon/codecarbon_Results/decompress/duration.png">
 
 ---
-<img src = "codecarbon/codecarbon_Results/decompress/emission.png">
+<img src = "codecarbon/codecarbon_Results/decompress/emissions.png">
 
 ---
 <img src = "codecarbon/codecarbon_Results/decompress/energy.png">
