@@ -75,7 +75,7 @@ baler/profiling
 
 - Installing ``` SnakeViz ``` and ``` yelp-gprof2dot ```
 ```console 
-    poetry add SnakeViz
+    poetry add snakeviz
     poetry add yelp-gprof2dot
 ```
 
@@ -220,6 +220,76 @@ baler/profiling
 <img src = "memory-profiler/mprof_Results/decompress_slope.png">
 
 
+#### Profiling Baler with ``` powermetrics ``` and ``` influxdb ```
+
+- Installing ``` influxdb ``` 
+```console
+    brew install influxdb
+    poetry add influxdb-client
+```
+
+- ``` Run powermetrics in a terminal ```
+```console
+    sudo poetry run python influxdb.py
+```
+
+- ``` Query the influxdb with flux cpu query ```
+```console
+from(bucket: "baler")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "CPU")
+  |> map(fn: (r) => ({ r with _value: float(v:r._value)/1000.00}))
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "last")
+```
+
+- ``` Query the influxdb with flux gpu query ```
+```console
+from(bucket: "baler")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "GPU")
+  |> map(fn: (r) => ({ r with _value: float(v:r._value)/1000.00}))
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "last")
+```
+
+- ``` Query the influxdb with flux total query ```
+```console
+from(bucket: "baler")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "Package")
+  |> map(fn: (r) => ({ r with _value: float(v:r._value)/1000.00}))
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "last")
+```
+- ``` Run baler with usual commands on train, compress and decompress modes on a different terminal ```
+
+#### Results
+
+##### Training
+---
+<img src = "powermetrics/powermetrics_Results/train/train_start.png">
+
+---
+<img src = "powermetrics/powermetrics_Results/train/train_mid.png">
+
+
+##### Compressing
+---
+<img src = "powermetrics/powermetrics_Results/compress/compress_start.png">
+
+---
+<img src = "powermetrics/powermetrics_Results/compress/compress_mid.png">
+
+
+##### Decompressing
+---
+<img src = "powermetrics/powermetrics_Results/decompress/decompress_start.png">
+
+---
+<img src = "powermetrics/powermetrics_Results/decompress/decompress_mid.png">
+
+
 #### Estimating CO<sub>2</sub> Emission with ``` codecarbon ```
 
 - Installing ``` codecarbon ```
@@ -227,19 +297,51 @@ baler/profiling
     poetry add codecarbon
 ```
 
+<img src = "codecarbon/codecarbon_Results/legend.png">
+
+##### ``` A scaling factor of 1e6 has been used to generate the plots for 50 baler runs with 1000 epochs each ```
+
 ##### Training
 ---
-<img src = "codecarbon/codecarbon_Results/train.png">
+<img src = "codecarbon/codecarbon_Results/train/duration.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/train/emissions.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/train/energy.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/train/hist.png">
 
 
 ##### Compressing
 ---
-<img src = "codecarbon/codecarbon_Results/compress.png">
+<img src = "codecarbon/codecarbon_Results/compress/duration.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/compress/emissions.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/compress/energy.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/compress/hist.png">
+
 
 
 ##### Decompressing
 ---
-<img src = "codecarbon/codecarbon_Results/decompress.png">
+<img src = "codecarbon/codecarbon_Results/decompress/duration.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/decompress/emissions.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/decompress/energy.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/decompress/hist.png">
 
 
 ### Tools and Frameworks 
@@ -258,11 +360,12 @@ baler/profiling
 
 
 #### List of the frameworks for Energy Cost Estimation:
-1. [scaphandre](https://github.com/hubblo-org/scaphandre)
-2. [boagent](https://github.com/Boavizta/boagent)
-3. [powermeter](https://github.com/autoai-incubator/powermeter)
-4. [powerjoular](https://gitlab.com/joular/powerjoular)
-5. [AIPowerMeter](https://github.com/GreenAI-Uppa/AIPowerMeter)
+1. [powermetrics](https://www.unix.com/man-page/osx/1/powermetrics/) with [influxdb](https://github.com/influxdata/influxdb)
+2. [scaphandre](https://github.com/hubblo-org/scaphandre)
+3. [boagent](https://github.com/Boavizta/boagent)
+4. [powermeter](https://github.com/autoai-incubator/powermeter)
+5. [powerjoular](https://gitlab.com/joular/powerjoular)
+6. [AIPowerMeter](https://github.com/GreenAI-Uppa/AIPowerMeter)
 
 
 #### List of the frameworks for CO<sub>2</sub> Emissions Estimation:
