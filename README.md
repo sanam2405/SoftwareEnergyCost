@@ -227,19 +227,51 @@ baler/profiling
     poetry add codecarbon
 ```
 
+<img src = "codecarbon/codecarbon_Results/legend.png">
+
+##### ``` A scaling factor of 1e6 has been used to generate the plots for 50 baler runs with 1000 epochs each ```
+
 ##### Training
 ---
-<img src = "codecarbon/codecarbon_Results/train.png">
+<img src = "codecarbon/codecarbon_Results/train/duration.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/train/emissions.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/train/energy.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/train/hist.png">
 
 
 ##### Compressing
 ---
-<img src = "codecarbon/codecarbon_Results/compress.png">
+<img src = "codecarbon/codecarbon_Results/compress/duration.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/compress/emission.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/compress/energy.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/compress/hist.png">
+
 
 
 ##### Decompressing
 ---
-<img src = "codecarbon/codecarbon_Results/decompress.png">
+<img src = "codecarbon/codecarbon_Results/decompress/duration.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/decompress/emission.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/decompress/energy.png">
+
+---
+<img src = "codecarbon/codecarbon_Results/decompress/hist.png">
 
 
 ### Tools and Frameworks 
