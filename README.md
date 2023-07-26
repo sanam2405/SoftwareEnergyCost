@@ -75,7 +75,7 @@ baler/profiling
 
 - Installing ``` SnakeViz ``` and ``` yelp-gprof2dot ```
 ```console 
-    poetry add SnakeViz
+    poetry add snakeviz
     poetry add yelp-gprof2dot
 ```
 
