@@ -421,10 +421,10 @@ Note: A Keyboard Interrupt is necessary to stop and exit from the _SnakeViz_ ser
 _cProfile profiles visualized using SnakeViz_
 ![](assets/images/cProfile/snakeviz_icicle.png)
 
-🕓 The majority time is taken by the `optimizer` for performing the gradient descent
-
 _call stack of cProfile_
-~[](assets/images/cProfile/snakeviz_stackcall.png)
+![](assets/images/cProfile/snakeviz_stackcall.png)
+
+🕓 The majority time is taken by the `optimizer` for performing the gradient descent
 
 #### Directed Graphs (Di Graphs):
 
@@ -447,6 +447,8 @@ _This is the call graph generated, rooted at the `perform_training()` function w
 
 🕓 The majority time is taken by the `optimizer` for performing the gradient descent
 🕓 The _Back Propagation_ takes more time than _Forward Propagation_
+
+Hence, the results are in compliance with each other
 
 ### 💡 Visualizing codecarbon logs
 
