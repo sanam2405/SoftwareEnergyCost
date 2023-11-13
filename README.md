@@ -450,6 +450,56 @@ _This is the call graph generated, rooted at the `perform_training()` function w
 
 Hence, the results are in compliance with each other
 
+### 💡 Powermetrics with InfluxDB
+Powermetrics is a built-in tool for macOS which monitors CPU usage and determines how much CPU time and CPU power is being allocated to different quality of service classes (QoS).
+
+1. Install influxDB
+
+```bash
+brew services start influxdb
+```
+InfluxDB runs on port `8086` by default. Assuming that you have not made any changes to its default configuration, you can see if everything is properly installed and running by accessing it on `localhost` at port `8086`
+
+```bash
+http://127.0.0.1:8086 or http://localhost:8086
+```
+If InfluxDB welcome page loads up, then everything is setup properly. The official documentation to setup the credentials and bucket at the [official documentation](https://docs.influxdata.com/influxdb/v2/install)
+
+2. InfluxDB dashboard setup
+
+- Open bucket on the InfluxDB UI
+- Create a new empty dashboard in the bucket
+- Add three widgets for CPU Power and GPU Power respectively
+- Now that we have three gauges added, we need to define the data to be used by the gauges.
+- Values that are stored in the time series database are stored in mW. It more intuitive to use Watts which makes it easier to compare the data with other machines online.
+- Edit each gauge by clicking on the Settings(Cog) button and clicking Configure. This will open the Query window. Query is used to pull data from the time series database.
+
+3. Query to view the power consumption in read-time
+
+Note: Here the bucket is named `baler`
+
+- CPU Power Consumption
+```bash
+from(bucket: "baler")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "CPU")
+  |> map(fn: (r) => ({ r with _value: float(v:r._value)/1000.00}))
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "last")
+```
+
+- GPU Power Consumption
+```bash
+from(bucket: "baler")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "GPU")
+  |> map(fn: (r) => ({ r with _value: float(v:r._value)/1000.00}))
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "last")
+```
+
+Save the queries and reload the page. The gauges should update values in realtime. The auto-refresh option can be set to indefinite and 10s.
+
 ### 💡 Visualizing codecarbon logs
 
 #### How to profile Baler using codecarbon ?
@@ -482,7 +532,7 @@ _Conventions and Units used by codecarbon_
 | 6   | [memray](https://github.com/bloomberg/memray)                                                                                                    | _Memray_ is a memory profiler for Python. It can track memory allocations in Python code, in native extension modules, and in the Python interpreter itself. It can generate several different types of reports to analyze the captured memory usage data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | 7   | [codecarbon](https://github.com/mlco2/codecarbon)                                                                                                | _codecarbon_ is a Python package that estimates the hardware electricity power consumption (GPU + CPU + RAM) and apply to it the carbon intensity of the region where the computing is done. The [_methodology_](https://mlco2.github.io/codecarbon/methodology.html) behind the package involves the use a scheduler that, by default, call for the measure every 15 seconds and measures the CO₂ as per the formula `Carbon dioxide emissions (CO₂eq) = C * E `. <br /> <br /> Here, `C` = Carbon Intensity of the electricity consumed for computation: quantified as g of CO₂ emitted per kilowatt-hour of electricity and `E` = Energy Consumed by the computational infrastructure: quantified as kilowatt-hours.                          |
 | 8   | [Eco2AI](https://github.com/sb-ai-lab/Eco2AI)                                                                                                    | _Eco2AI_ is a Python library for CO₂ emission tracking. It monitors energy consumption of CPU & GPU devices and estimates equivalent carbon emissions taking into account the regional emission coefficient.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 9   | [powermetrics](https://www.unix.com/man-page/osx/1/powermetrics) _with_ [influxDB](https://abhimanbhau.github.io/mac/m1-mac-power-usage-monitor) | _powermetrics_ gathers and displays CPU usage statistics (divided into time spent in user mode and supervisor mode), timer and interrupt wake-up frequency (total and, for near-idle workloads, those that resulted in package idle exits), and on supported platforms,interrupt frequencies (categorized by CPU number), package C-state statistics (an indication of the time the core complex + integrated graphics, if any, were in low-power idle states), as well as the average execution frequency for each CPU when not idle. This comes with as a default with _UNIX_ and therefore can be considered a standard. <br /><br /> _influxDB_ is a time-series database that can be used to visualize the logs generated by _powermetrics_ |
+| 9   | [powermetrics](https://www.unix.com/man-page/osx/1/powermetrics) _with_ [InfluxDB](https://abhimanbhau.github.io/mac/m1-mac-power-usage-monitor) | _powermetrics_ gathers and displays CPU usage statistics (divided into time spent in user mode and supervisor mode), timer and interrupt wake-up frequency (total and, for near-idle workloads, those that resulted in package idle exits), and on supported platforms,interrupt frequencies (categorized by CPU number), package C-state statistics (an indication of the time the core complex + integrated graphics, if any, were in low-power idle states), as well as the average execution frequency for each CPU when not idle. This comes with as a default with _UNIX_ and therefore can be considered a standard. <br /><br /> _influxDB_ is a time-series database that can be used to visualize the logs generated by _powermetrics_ |
 
 ## Contributions <img src="https://user-images.githubusercontent.com/48355572/263670717-89cefc3e-346f-4b89-9f3a-36d7f14bb25c.png" width="18.5px" height="20px">
 
