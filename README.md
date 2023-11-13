@@ -98,7 +98,7 @@ If InfluxDB welcome page loads up, then everything is setup properly. The offici
 
 2. Scripting to save the _powermetrics_ log into _InfluxDB_
 
-This script should be executed before running _Baler_. The script runs continuously in the background while _baler_ runs.
+This script should be executed before running _Baler_. The script runs continuously in the background while _baler_ runs in one of the modes. 
 
 ```py
 from datetime import datetime
@@ -144,7 +144,15 @@ def powermetrics_profile():
 
 powermetrics_profile()
 ```
+`sudo` access is needed to run the script. Suppose you have saved the script with the file name `influxdb.py` then run the script as below, depending on your environment.
 
+```bash
+sudo python3 influxdb.py 
+```
+or
+```bash
+sudo poetry run influxdb.py
+```
 3. InfluxDB dashboard setup
 
 - Open bucket on the InfluxDB UI
@@ -178,7 +186,7 @@ from(bucket: "baler")
   |> yield(name: "last")
 ```
 
-Save the queries and reload the page. The gauges should update values in realtime. The auto-refresh option can be set to indefinite and 10s.
+Save the queries in the respective gauges and reload the page. The gauges should update values in realtime. The auto-refresh option can be set to indefinite and 10s.
 
 5. Sample Outputs from _InfluxDB_ dashboard. All the reading are in _Watt_
 
@@ -190,6 +198,8 @@ _Baler training ongoing_
 
 _Baler training ends_
 ![](assets/images/powermetrics/train_end.png)
+
+Note: A Keyboard Interrupt is necessary to stop and exit from the `influxdb.py` script.
 
 ### 💡 Visualizing codecarbon logs
 
@@ -211,6 +221,20 @@ _Conventions and Units used by codecarbon_
 
 #### Setup to estimate energy using _codecarbon_
 
+- Training was done on the **_CFD Dataset_** with my **_Apple MacBook Air_** having the following specifications
+    
+![](assets/images/m1_specs.png)
+
+- A scaling factor of `1e6` or $10^6$  was used to generate the plots for 50 baler runs each with 1000 epochs. 
+
+Note - Scaling factor was introduced simply because the numbers generated were small in magnitude and were difficult to plot. Hence, each values were scaled up by a factor of $10^6$. So, if a particular value on any axis except the time axis is read as $V_{plot}$ from the plot, the actual value is :  $$V_{actual} = V_{plot} * 10^{-6}$$ 
+
+![](assets/images/codecarbon/train/hist.png)
+
+![](assets/images/codecarbon/compress/hist.png)
+
+![](assets/images/codecarbon/decompress/hist.png)
+
 ### 🔍 List of all Tools used
 
 | No. | Profiler/Tool                                                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -221,7 +245,7 @@ _Conventions and Units used by codecarbon_
 | 4   | [scalene](https://github.com/plasma-umass/scalene)                                                                                               | _Scalene_ is a high-performance CPU, GPU and memory profiler for Python that incorporates AI-powered proposed optimizations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | 5   | [memory-profiler](https://pypi.org/project/memory-profiler)                                                                                      | _memory-profiler_ is a python module for monitoring memory consumption of a process as well as line-by-line analysis of memory consumption for python programs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | 6   | [memray](https://github.com/bloomberg/memray)                                                                                                    | _Memray_ is a memory profiler for Python. It can track memory allocations in Python code, in native extension modules, and in the Python interpreter itself. It can generate several different types of reports to analyze the captured memory usage data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| 7   | [codecarbon](https://github.com/mlco2/codecarbon)                                                                                                | _codecarbon_ is a Python package that estimates the hardware electricity power consumption (GPU + CPU + RAM) and apply to it the carbon intensity of the region where the computing is done. The [_methodology_](https://mlco2.github.io/codecarbon/methodology.html) behind the package involves the use a scheduler that, by default, call for the measure every 15 seconds and measures the CO₂ as per the formula `Carbon dioxide emissions (CO₂eq) = C * E `. <br /> <br /> Here, `C` = Carbon Intensity of the electricity consumed for computation: quantified as g of CO₂ emitted per kilowatt-hour of electricity and `E` = Energy Consumed by the computational infrastructure: quantified as kilowatt-hours.                          |
+| 7   | [codecarbon](https://github.com/mlco2/codecarbon)                                                                                                | _codecarbon_ is a Python package that estimates the hardware electricity power consumption (GPU + CPU + RAM) and apply to it the carbon intensity of the region where the computing is done. The [_methodology_](https://mlco2.github.io/codecarbon/methodology.html) behind the package involves the use a scheduler that, by default, call for the measure every 15 seconds and measures the CO₂ as per the formula Carbon dioxide emissions $(CO₂eq) = C * E$ <br/> <br /> Here, `C` = Carbon Intensity of the electricity consumed for computation: quantified as g of CO₂ emitted per kilowatt-hour of electricity and `E` = Energy Consumed by the computational infrastructure: quantified as kilowatt-hours.                          |
 | 8   | [Eco2AI](https://github.com/sb-ai-lab/Eco2AI)                                                                                                    | _Eco2AI_ is a Python library for CO₂ emission tracking. It monitors energy consumption of CPU & GPU devices and estimates equivalent carbon emissions taking into account the regional emission coefficient.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | 9   | [powermetrics](https://www.unix.com/man-page/osx/1/powermetrics) _with_ [InfluxDB](https://abhimanbhau.github.io/mac/m1-mac-power-usage-monitor) | _powermetrics_ gathers and displays CPU usage statistics (divided into time spent in user mode and supervisor mode), timer and interrupt wake-up frequency (total and, for near-idle workloads, those that resulted in package idle exits), and on supported platforms,interrupt frequencies (categorized by CPU number), package C-state statistics (an indication of the time the core complex + integrated graphics, if any, were in low-power idle states), as well as the average execution frequency for each CPU when not idle. This comes with as a default with _UNIX_ and therefore can be considered a standard. <br /><br /> _influxDB_ is a time-series database that can be used to visualize the logs generated by _powermetrics_ |
 
