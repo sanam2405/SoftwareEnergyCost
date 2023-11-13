@@ -312,7 +312,8 @@ I have incorporated some of the profilers into the `baler` codebase and made mul
 
 Apart from this, most of my work and experiments can be found **unorganized**, across the various branches of the repositories [sanam2405/baler](https://github.com/sanam2405/baler) and [sanam2405/SoftwareEnergyCost](https://github.com/sanam2405/SoftwareEnergyCost/tree/testing) and inside the [profling](https://github.com/sanam2405/SoftwareEnergyCost/tree/main/profiling) folder of this repository
 
-##
+## References
+
 [1] Baler - Machine Learning Based Compression of Scientific Data &nbsp; ([**LINK**🔗](https://arxiv.org/pdf/2305.02283.pdf))
 
 [2] Towards the Systematic Reporting of the Energy and Carbon
