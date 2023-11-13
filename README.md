@@ -225,15 +225,28 @@ _Conventions and Units used by codecarbon_
     
 ![](assets/images/m1_specs.png)
 
-- A scaling factor of `1e6` or $10^6$  was used to generate the plots for 50 baler runs each with 1000 epochs. 
+- A scaling factor of `1e6` or $10^6$  was used to generate the plots for 50 baler runs each with 1000 epochs with the following configuration:
 
-Note - Scaling factor was introduced simply because the numbers generated were small in magnitude and were difficult to plot. Hence, each values were scaled up by a factor of $10^6$. So, if a particular value on any axis except the time axis is read as $V_{plot}$ from the plot, the actual value is :  $$V_{actual} = V_{plot} * 10^{-6}$$ 
+![](assets/images/codecarbon/codecarbon_config.png)
 
+_Plots for Train_
 ![](assets/images/codecarbon/train/hist.png)
 
+_Plots for Compression_
 ![](assets/images/codecarbon/compress/hist.png)
 
+_Plots for Decompression_
 ![](assets/images/codecarbon/decompress/hist.png)
+
+#### Summarizing the results
+
+| $Mode$       	| $CO_{2} Emission$ ($CO_{2}$ $Eqv\ in\ Kg$) 	| $Energy\ Consumed$ ($kWh$) 	|
+|------------	|------------------------	|-----------------------	|
+| Train      	| $6.25$                   	| $15.35$                 	|
+| Compress   	| $0.024$                  	| $0.075$                 	|
+| Decompress 	| $0.022$                  	| $0.063$                 	|
+
+Note - Scaling factor was introduced simply because the numbers generated were small in magnitude and were difficult to plot. Hence, each values were scaled up by a factor of $10^6$. So, if a particular value on any axis except the time axis is read as $V_{plot}$ from the plot, the actual value is :  $$V_{actual} = V_{plot} * 10^{-6}$$
 
 ### 🔍 List of all Tools used
 
