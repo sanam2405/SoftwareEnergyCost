@@ -378,6 +378,7 @@ from(bucket: "baler")
 - **Year**: 2023
 - **Organisation**: [CERN-HSF](https://hepsoftwarefoundation.org) <img src="assets/images/hsf_logo.png" width="14.5px" height="15.5px">
 - **Project Title**: [Estimating the Energy Cost of Scientific Software](https://summerofcode.withgoogle.com/programs/2023/projects/Nks9akq7)
+- **Project Proposal**: [Estimating the Energy Cost of Scientific Software](https://drive.google.com/file/d/1YoCpkYWR__KB4vVzKOA4xi1qgwwFzpU5/view)
 - **Repository**: [baler-collaboration/baler](https://github.com/baler-collaboration/baler)
 - **Mentor**: [Caterina Doglioni](https://www.hep.lu.se/staff/doglioni/) (<img src="https://user-images.githubusercontent.com/48355572/263745495-93ca876f-c21d-4af3-aa8e-e164cdc46b92.png" width="14.5px" height="14px">[@urania277](https://github.com/urania277))
 - **Project Size**: Large
@@ -386,7 +387,7 @@ from(bucket: "baler")
 
 ## Project Details
 
-Estimate the energy efficiency and performance of a scientific software - _Baler_ and attempt to identify where this efficiency can be improved. ✨
+Estimate the energy efficiency and performance of a scientific software - _Baler_ and attempt to identify where this efficiency can be improved. <img src="https://user-images.githubusercontent.com/48355572/263672801-5929885f-9227-4be3-a686-ea3fbeff13d2.gif" width="12.5px" height="12.5px">
 
 > **Background**: The _Large Hadron Collider (LHC) experiments_ <img src="assets/images/proton_collisions.png" width="14.5px" height="15.5px"> generate massive datasets composed of billions of _proton-proton_ collisions. The analysis of this data requires _high-throughput scientific computing_ that relies on efficient software algorithms. In today’s world, where **energy crisis** and **environmental issues** are becoming more pressing concerns, it is crucial that we start taking action to develop sustainable software solutions. As scientific software is being used more and more in high-throughput computing, there is a growing need to optimize its _energy efficiency_ and reduce its _carbon footprint_.
 
@@ -394,7 +395,39 @@ Estimate the energy efficiency and performance of a scientific software - _Baler
 
 ## Project Report
 
-## Contributions
+## Contributions <img src="https://user-images.githubusercontent.com/48355572/263670717-89cefc3e-346f-4b89-9f3a-36d7f14bb25c.png" width="18.5px" height="20px">
+
+Throughout the summer, I have spent most of my time exploring profilers and learning about profiling small code snippets and softwares in general. I have profiled _Baler_ with multiple profilers with varied techniques.
+
+| No. | Profiler/Tool                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | [cProfile](https://docs.python.org/3/library/profile.html)                                                                                  | cProfile provides [_Deterministic Profiling_](https://sceweb.sce.uhcl.edu/helm/WEBPAGE-Python/documentation/python_tutorial/lib/Deterministic_Profiling.html) of Python programs. A profile is a set of statistics that describes how often and for how long various parts of the program executed. Is measures the [_CPU_](https://pythonspeed.com/articles/blocking-cpu-or-io) time                             |
+| 2   | [pyinstruments](https://github.com/joerick/pyinstrument)                                                                                    | pyinstruments provides [_Statistical Profiling_](<https://en.wikipedia.org/wiki/Profiling_(computer_programming)>) of Python programs. It doesn’t track every function call that the program makes. Instead, it records the call stack every 1ms and measures the [_Wall Clock_](https://stackoverflow.com/questions/7335920/what-specifically-are-wall-clock-time-user-cpu-time-and-system-cpu-time-in-uni) time |
+| 3   | [experiment-impact-tracker](https://github.com/Breakend/experiment-impact-tracker)                                                          | lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 4   | [scalene](https://github.com/plasma-umass/scalene)                                                                                          | lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 5   | [memory-profiler](https://pypi.org/project/memory-profiler)                                                                                 | lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 6   | [memray](https://github.com/bloomberg/memray)                                                                                               | lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 7   | [codecarbon](https://github.com/mlco2/codecarbon)                                                                                           | lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 8   | [Eco2AI](https://github.com/sb-ai-lab/Eco2AI)                                                                                               | lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 9   | [powermetrics](https://www.unix.com/man-page/osx/1/powermetrics) & [influxDB](https://abhimanbhau.github.io/mac/m1-mac-power-usage-monitor) | lorem ipsum                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+I have incorporated some of the profilers into the `baler` codebase and made the multiple commits spread across the subsequent Pull Requests at [baler-collaboration/baler](https://github.com/baler-collaboration/baler) in the reverse chronological order
+
+- [ ] Visualize cProfile logs and dumps ([**PR #331**](https://github.com/baler-collaboration/baler/pull/331))
+
+<br/>
+
+- [ ] Implement codecarbon plots ([**PR #330**](https://github.com/baler-collaboration/baler/pull/330))
+
+<br/>
+
+- [x] Added -m flag while training baler. Fixes Import Error ([**PR #286**](https://github.com/baler-collaboration/baler/pull/286))
+
+<br />
+
+- [x] MacOS Installation Issues ([**PR #280**](https://github.com/baler-collaboration/baler/pull/280))
+
+<br/>
 
 ## References
 
@@ -417,7 +450,7 @@ Copyright 2023 Baler-Collaboration. Distributed under the Apache License 2.0. Se
 
 ## Summary
 
-Participating in **Google Summer of Code** (GSoC) for the first very first time was an exhilarating experience for me. I'm immensely grateful to my mentor, [Jen Person 👩](https://github.com/jenperson), for this opportunity. Her invaluable feedback propelled the project.
+Participating in **Google Summer of Code** (GSoC) for the first very first time was an exhilarating experience for me. I'm immensely grateful to my mentor, [Caterina Doglioni](https://www.hep.lu.se/staff/doglioni/), for this opportunity. I am thankful for her invaluable guidance, feedback and understanding during my tough times through the project.
 
 > Special Thanks to [**Leonid Didukh**](https://www.linkedin.com/in/ledidukh) ([@neogyk](https://github.com/neogyk)) for providing immense support and help throughout the program and [**Anirban Mukerjee**](https://www.linkedin.com/in/anirbanm1728) ([@anirbanm1728](https://github.com/anirbanm1728)) & [**Krishnaneel Dey**](https://www.linkedin.com/in/krishnaneel-dey) ([@Krishnaneel](https://github.com/Krishnaneel)) for their valuable feedback on the proposal.
 
