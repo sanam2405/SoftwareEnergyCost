@@ -1,10 +1,4 @@
-# Google Summer of Code 2023 - ``` CERN ``` 
-
-## Contributor - ``` Manas Pratim Biswas ```
-
-### Estimating the Energy Cost of a Scientific Software
-
-
+<!--
 #### Repository Structure
 
 ```
@@ -70,11 +64,11 @@ baler/profiling
     poetry run python -m cProfile -o profiling/cProfile/cprofile_decompress.prof -m baler --mode decompress --project CFD_workspace CFD_project_animation
 ```
 
-#### Visualizing with ``` SnakeViz ``` and ``` yelp-gprof2dot ``` 
+#### Visualizing with ``` SnakeViz ``` and ``` yelp-gprof2dot ```
 
 
 - Installing ``` SnakeViz ``` and ``` yelp-gprof2dot ```
-```console 
+```console
     poetry add snakeviz
     poetry add yelp-gprof2dot
 ```
@@ -134,7 +128,7 @@ baler/profiling
 
 
 - Installing ``` pyinstrument ```
-```console 
+```console
     poetry add pyinstrument
 ```
 
@@ -177,7 +171,7 @@ baler/profiling
 
 
 - Installing ``` memory-profiler ```
-```console 
+```console
     poetry add memory-profiler
 ```
 
@@ -222,7 +216,7 @@ baler/profiling
 
 #### Profiling Baler with ``` powermetrics ``` and ``` influxdb ```
 
-- Installing ``` influxdb ``` 
+- Installing ``` influxdb ```
 ```console
     brew install influxdb
     poetry add influxdb-client
@@ -293,7 +287,7 @@ from(bucket: "baler")
 #### Estimating CO<sub>2</sub> Emission with ``` codecarbon ```
 
 - Installing ``` codecarbon ```
-```console 
+```console
     poetry add codecarbon
 ```
 
@@ -344,7 +338,7 @@ from(bucket: "baler")
 <img src = "codecarbon/codecarbon_Results/decompress/hist.png">
 
 
-### Tools and Frameworks 
+### Tools and Frameworks
 
 #### CPU/GPU Profilers:
 1. [cProfile](https://docs.python.org/3/library/profile.html)
@@ -373,4 +367,27 @@ from(bucket: "baler")
 2. [codecarbon](https://github.com/mlco2/codecarbon)
 3. [Eco2AI](https://github.com/sb-ai-lab/Eco2AI)
 4. [CarbonAI](https://github.com/Capgemini-Invent-France/CarbonAI)
-5. [tracarbon](https://github.com/fvaleye/tracarbon)
+5. [tracarbon](https://github.com/fvaleye/tracarbon) -->
+
+# Google Summer of Code 2023
+
+## Contributor : _Manas Pratim Biswas_
+
+## Description
+
+- **Year**: 2023
+- **Organisation**: [CERN-HSF](https://hepsoftwarefoundation.org) <img src="assets/images/hsf_logo.png" width="14.5px" height="15.5px">
+- **Project Title**: [Estimating the Energy Cost of Scientific Software](https://summerofcode.withgoogle.com/programs/2023/projects/Nks9akq7)
+- **Repository**: [baler-collaboration/baler](https://github.com/baler-collaboration/baler)
+- **Mentor**: [Caterina Doglioni](https://www.hep.lu.se/staff/doglioni/) (<img src="https://user-images.githubusercontent.com/48355572/263745495-93ca876f-c21d-4af3-aa8e-e164cdc46b92.png" width="14.5px" height="14px">[@urania277](https://github.com/urania277))
+- **Project Size**: Large
+
+<br/>
+
+## Project Details
+
+Estimate the energy efficiency and performance of a scientific software - _Baler_ and attempt to identify where this efficiency can be improved. ✨
+
+> **Background**: The _Large Hadron Collider (LHC) experiments_ <img src="assets/images/proton_collisions.png" width="14.5px" height="15.5px"> generate massive datasets composed of billions of _proton-proton_ collisions. The analysis of this data requires _high-throughput scientific computing_ that relies on efficient software algorithms. In today’s world, where **energy crisis** and **environmental issues** are becoming more pressing concerns, it is crucial that we start taking action to develop sustainable software solutions. As scientific software is being used more and more in high-throughput computing, there is a growing need to optimize its _energy efficiency_ and reduce its _carbon footprint_.
+
+<br/>
