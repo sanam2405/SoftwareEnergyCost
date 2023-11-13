@@ -1,5 +1,9 @@
 # Google Summer of Code 2023
+<br />
 
+![gsoc](assets/gsoc_cern_banner_flat.png)
+
+<br />
 ## Contributor : _Manas Pratim Biswas_
 
 ## Description
@@ -28,7 +32,7 @@ Estimate the energy efficiency and performance of a scientific software - _Baler
 
 Throughout the summer, I have spent most of my time exploring profilers and learning about profiling small code snippets and softwares in general.
 
-Initially, I profiled _Baler_ with multiple profilers with varied techniques. Some profilers like _codecarbon_ had to be used as _**wrappers**_ or invoked as _**APIs**_ while others like _cProfile_, _pyinstruments_, _powermetrics_ had to be used as standalone commands with optional `-flags` directly from the terminal.
+Initially, I profiled _Baler_ with multiple profilers with varied techniques. Some profilers like _codecarbon_ had to be used as _**wrappers**_ or invoked as _**APIs**_ while others like _cProfile_, _pyinstruments_, _powermetrics_ had to be used as **standalone commands** with optional `-flags` directly from the terminal.
 
 ### 💡 Visualizing cProfile logs
 
@@ -87,8 +91,16 @@ InfluxDB is a time-series database that can be used to visualize the real-time l
 1. Install influxDB
 
 ```bash
+brew install influxdb
+```
+In case you don't have `homebrew`, get [homebrew from here](https://brew.sh)
+
+2. Starting the InfluxDB service
+
+```bash
 brew services start influxdb
 ```
+
 InfluxDB runs on port `8086` by default. Assuming that you have not made any changes to its default configuration, you can see if everything is properly installed and running by accessing it on `localhost` at port `8086`
 
 ```bash
@@ -96,7 +108,7 @@ http://127.0.0.1:8086 or http://localhost:8086
 ```
 If InfluxDB welcome page loads up, then everything is setup properly. The official documentation to setup the credentials and bucket at the [official documentation](https://docs.influxdata.com/influxdb/v2/install)
 
-2. Scripting to save the _powermetrics_ log into _InfluxDB_
+3. Scripting to save the _powermetrics_ log into _InfluxDB_
 
 This script should be executed before running _Baler_. The script runs continuously in the background while _baler_ runs in one of the modes. 
 
@@ -153,7 +165,7 @@ or
 ```bash
 sudo poetry run influxdb.py
 ```
-3. InfluxDB dashboard setup
+4. InfluxDB dashboard setup
 
 - Open bucket on the InfluxDB UI
 - Create a new empty dashboard in the bucket
@@ -162,7 +174,7 @@ sudo poetry run influxdb.py
 - Values that are stored in the time series database are stored in mW. It more intuitive to use Watts which makes it easier to compare the data with other machines online.
 - Edit each gauge by clicking on the Settings(Cog) button and clicking Configure. This will open the Query window. Query is used to pull data from the time series database.
 
-4. Query to view the power consumption in real-time
+5. Query to view the power consumption in real-time
 
 Note: Here the bucket is named `baler`
 
@@ -188,7 +200,7 @@ from(bucket: "baler")
 
 Save the queries in the respective gauges and reload the page. The gauges should update values in realtime. The auto-refresh option can be set to indefinite and 10s.
 
-5. Sample Outputs from _InfluxDB_ dashboard. All the reading are in _Watt_
+6. Sample Outputs from _InfluxDB_ dashboard. All the reading are in _Watt_
 
 _Baler training starts_
 ![](assets/images/powermetrics/train_start.png)
@@ -264,30 +276,42 @@ Note - Scaling factor was introduced simply because the numbers generated were s
 
 ## Contributions <img src="https://user-images.githubusercontent.com/48355572/263670717-89cefc3e-346f-4b89-9f3a-36d7f14bb25c.png" width="18.5px" height="20px">
 
-I have incorporated some of the profilers into the `baler` codebase and made multiple commits spread across the subsequent Pull Requests at [baler-collaboration/baler](https://github.com/baler-collaboration/baler) and listed in the reverse chronological order
+I have incorporated some of the profilers into the `baler` codebase and made multiple commits spread across the subsequent Pull Requests at [baler-collaboration/baler](https://github.com/baler-collaboration/baler) and are listed in the reverse chronological order
 
-- [ ] Integrate _scalene_, _eco2ai_ and _memray_ to profile baler on the basis of a flag
+- [ ] Integrate _scalene_, _eco2ai_ and _memray_ to profile baler on the basis of a conditional flag ($_{WIP}$)
 
 <br/>
 
 - [x] Visualize cProfile logs and dumps ([**PR #331**](https://github.com/baler-collaboration/baler/pull/331)) 🟨
 
+    - Implemented SnakeViz visualizations from cProfile `prof` through wrappers and subprocess 
+    - Implemented Di-graph generation using yelp-gprof2dot. 
+    - Utilized graphviz to parse the `dot` files and render into various formats like `.SVG`, `.PNG`, `.PDF`
+
 <br/>
 
 - [x] Implement codecarbon plots ([**PR #330**](https://github.com/baler-collaboration/baler/pull/330)) 🟨
+
+    - Dumped the codecarbon logs into a `.CSV` file
+    - Subsequently parsed the `.CSV` file to generate plots
 
 <br/>
 
 - [x] Added -m flag while training baler. Fixes Import Error ([**PR #286**](https://github.com/baler-collaboration/baler/pull/286)) 🟥
 
+    - Minor Bug Fix. It was resolved by a previous PR from a fellow contributor before mine could get merged
+
 <br />
 
 - [x] MacOS Installation Issues ([**PR #280**](https://github.com/baler-collaboration/baler/pull/280)) 🟥
 
-<br/>
+    - The instruction to install `poetry`, the dependency manager used in this project, was specific to a particular system that caused confusion and ambiguity while installation. This was later fixed and `poetry` installation guide was changed in ([**Commit #c17e684**](https://github.com/baler-collaboration/baler/commit/c17e6842607d752om/sanam2405/baler)) 
 
-## References
+<br />
 
+Apart from this, most of my work and experiments can be found **unorganized**, across the various branches of the repositories [sanam2405/baler](https://github.com/sanam2405/baler) and [sanam2405/SoftwareEnergyCost](https://github.com/sanam2405/SoftwareEnergyCost/tree/testing) and inside the [profling](https://github.com/sanam2405/SoftwareEnergyCost/tree/main/profiling) folder of this repository
+
+##
 [1] Baler - Machine Learning Based Compression of Scientific Data &nbsp; ([**LINK**🔗](https://arxiv.org/pdf/2305.02283.pdf))
 
 [2] Towards the Systematic Reporting of the Energy and Carbon
