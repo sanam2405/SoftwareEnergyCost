@@ -13,7 +13,7 @@
 - **Year**: 2023
 - **Organisation**: [CERN-HSF](https://hepsoftwarefoundation.org) <img src="assets/images/hsf_logo.png" width="14.5px" height="15.5px">
 - **Project Title**: [Estimating the Energy Cost of Scientific Software](https://summerofcode.withgoogle.com/programs/2023/projects/Nks9akq7)
-- **Project Proposal**: [Estimating the Energy Cost of Scientific Software](https://drive.google.com/file/d/1YoCpkYWR__KB4vVzKOA4xi1qgwwFzpU5/view)
+- **Project Proposal**: [Estimating the Energy Cost of Scientific Software](https://drive.google.com/file/d/1z_1FtA_3vyRjwqYh57Z3KfXUJU8wsPAT/view?usp=sharing)
 - **Repository**: [baler-collaboration/baler](https://github.com/baler-collaboration/baler)
 - **Mentor**: [Caterina Doglioni](https://www.hep.lu.se/staff/doglioni/) (<img src="https://user-images.githubusercontent.com/48355572/263745495-93ca876f-c21d-4af3-aa8e-e164cdc46b92.png" width="14.5px" height="14px">[@urania277](https://github.com/urania277)) _&_ [Benedikt Hegner](https://www.linkedin.com/in/benedikt-hegner-7451832) (<img src="https://user-images.githubusercontent.com/48355572/263745495-93ca876f-c21d-4af3-aa8e-e164cdc46b92.png" width="14.5px" height="14px">[@hegner](https://github.com/hegner))
 - **Project Size**: Large
